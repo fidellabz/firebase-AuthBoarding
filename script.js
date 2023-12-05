@@ -12,25 +12,25 @@
     const txtEmail = document.getElementById("txtEmail");
     const txtPhone = document.getElementById("txtPhone");
     const txtPassword = document.getElementById("txtPassword");
-    const btnLogin = document.getElementById("btnLogin");
+    // const btnLogin = document.getElementById("btnLogin");
     const btnSignup = document.getElementById("btnSignup");
     const loadingSpinner = document.getElementById('loadingSpinner');
 
     //Add Login Event
-    btnLogin.addEventListener('click', e => {
-        const email = txtEmail.value;
-        const password = txtPassword.value;
+    // btnLogin.addEventListener('click', e => {
+    //     const email = txtEmail.value;
+    //     const password = txtPassword.value;
 
-        const auth = firebase.auth();
+    //     const auth = firebase.auth();
 
-        //sign in with firebase auth
-        auth.signInWithEmailAndPassword(email, password).then(user =>{
-            alert("Login Successful :)");
-        }).catch(err => {
-            alert(err.message);
-        });
+    //     //sign in with firebase auth
+    //     auth.signInWithEmailAndPassword(email, password).then(user =>{
+    //         alert("Login Successful :)");
+    //     }).catch(err => {
+    //         alert(err.message);
+    //     });
         
-    });
+    // });
 
     // Assuming btnSignup, txtName, txtEmail, txtPhone, txtPassword, loadingSpinner, signupButton, firebase, and $ are defined elsewhere in your code
 
