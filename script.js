@@ -12,27 +12,11 @@
     const txtEmail = document.getElementById("txtEmail");
     const txtPhone = document.getElementById("txtPhone");
     const txtPassword = document.getElementById("txtPassword");
-    // const btnLogin = document.getElementById("btnLogin");
+    const btnLogin = document.getElementById("btnLogin");
     const btnSignup = document.getElementById("btnSignup");
     const loadingSpinner = document.getElementById('loadingSpinner');
 
-    //Add Login Event
-    // btnLogin.addEventListener('click', e => {
-    //     const email = txtEmail.value;
-    //     const password = txtPassword.value;
-
-    //     const auth = firebase.auth();
-
-    //     //sign in with firebase auth
-    //     auth.signInWithEmailAndPassword(email, password).then(user =>{
-    //         alert("Login Successful :)");
-    //     }).catch(err => {
-    //         alert(err.message);
-    //     });
-        
-    // });
-
-    // Assuming btnSignup, txtName, txtEmail, txtPhone, txtPassword, loadingSpinner, signupButton, firebase, and $ are defined elsewhere in your code
+       // Assuming btnSignup, txtName, txtEmail, txtPhone, txtPassword, loadingSpinner, signupButton, firebase, and $ are defined elsewhere in your code
 
 // Add Signup Event
 btnSignup.addEventListener('click', e => {
@@ -61,14 +45,17 @@ btnSignup.addEventListener('click', e => {
                 // Show signup successful modal
                 $('#signupModal').modal('show');
 
-                alert("Signup Successful :)");
+                // alert("Signup Successful :)");
             })
             .catch(error => {
                 // Hide loading spinner
                 loadingSpinner.classList.add('d-none');
                 btnSignup.removeAttribute('disabled');
 
-                alert(error.message);
+                 // Show signup Error modal
+                 $('#errorModal').modal('show');
+
+                // alert(error.message);
             });
     } else {
         // Handle form validation error
@@ -77,5 +64,29 @@ btnSignup.addEventListener('click', e => {
 });
 
 
+
+ //Add Login Event
+ btnLogin.addEventListener('click', e => {
+    const email = txtEmail.value;
+    const password = txtPassword.value;
+
+    const auth = firebase.auth();
+
+    //sign in with firebase auth
+    auth.signInWithEmailAndPassword(email, password).then(user =>{
+
+         // Show signup successful modal
+         $('#loginModal').modal('show');
+
+        // alert("Login Successful :)");
+    }).catch(err => {
+
+           // Show signup Error modal
+           $('#errorModal').modal('show');
+
+        // alert(err.message);
+    });
+    
+});
 
 }());
